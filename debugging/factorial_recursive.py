@@ -1,28 +1,17 @@
 #!/usr/bin/python3
 import sys
 
+# Definimos una función recursiva para calcular el factorial de un número
 def factorial(n):
+    # Caso base: el factorial de 0 es 1
     if n == 0:
         return 1
     else:
+        # Caso recursivo: n * factorial de (n-1)
         return n * factorial(n-1)
 
-if __name__ == "__main__":
-    try:
-        # Verificar que se haya proporcionado un argumento
-        if len(sys.argv) < 2:
-            raise ValueError("Debe proporcionar un número como argumento.")
-        
-        # Convertir la entrada a entero
-        n = int(sys.argv[1])
-        
-        # Verificar que el número no sea negativo
-        if n < 0:
-            raise ValueError("El factorial no está definido para números negativos.")
-        
-        # Calcular y mostrar el factorial
-        f = factorial(n)
-        print(f)
-    
-    except ValueError as e:
-        print(f"Error: {e}")
+# Convertimos el primer argumento de la línea de comandos a un entero y calculamos su factorial
+f = factorial(int(sys.argv[1]))
+
+# Imprimimos el resultado del factorial
+print(f)
